@@ -12,7 +12,9 @@ export class WeatherComponent implements OnInit {
 
   cityWeather: any = [];
   llWeahter: any = [];
-
+  value1: any;
+  value2: any;
+  value3: any;
 
 
   constructor(public rest: RestService) {
