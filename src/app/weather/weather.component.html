@@ -1,0 +1,60 @@
+<div>
+  <div class="weatherSection">
+    <div>
+      <h1>City weather</h1>
+      <div class="inputFields">
+        <input class="inputField" [(ngModel)]="value1">
+
+        <button (click)="getCityWeather(value1)">Search</button>
+      </div>
+    </div>
+    <table *ngIf="cityWeather">
+      <tr>
+        <th>City</th>
+        <th>Country</th>
+        <th>Temperature</th>
+        <th>Wind</th>
+        <th>Cordinates</th>
+      </tr>
+
+      <!-- BIND ARRAY TO TABLE -->
+      <tr *ngFor="let weather of cityWeather">
+        <td>{{weather.name}}</td>
+        <td>{{weather.sys.country}}</td>
+        <td>{{weather.main.temp}} &deg;F</td>
+        <td>{{weather.wind.speed}} M/s</td>
+        <td>Longtitude:{{weather.coord.lon}} Latitude:{{weather.coord.lat}}</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div class="weatherSection">
+    <div>
+      <h1>Latitude and longtitude weather</h1>
+      <div class="inputFields">
+        <input [(ngModel)]="value2" placeholder="Longtitude">
+        <input [(ngModel)]="value3" placeholder="Latitude">
+        <button (click)="getLLWeather(value2, value3)">Search</button>
+      </div>
+    </div>
+
+    <table *ngIf="cityWeather">
+      <tr>
+        <th>Longtitude</th>
+        <th>Latitude</th>
+        <th>Temperature</th>
+        <th>Wind</th>
+      </tr>
+
+      <!-- BIND ARRAY TO TABLE -->
+      <tr *ngFor="let weather of llWeahter">
+        <td>{{weather.coord.lon}}</td>
+        <td>{{weather.coord.lat}}</td>
+        <td>{{weather.main.temp}} &deg;F</td>
+        <td>{{weather.wind.speed}} M/s</td>
+      </tr>
+
+    </table>
+  </div>
+</div>
